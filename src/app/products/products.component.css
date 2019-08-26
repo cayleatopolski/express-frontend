@@ -1,0 +1,46 @@
+body {
+  position: relative;
+}
+
+section {
+  background: #fff;
+  border-radius: 10px;
+  width: 50%;
+  position: absolute;
+  right: 25%;
+}
+
+div {
+  margin: 5px 20px;
+  border-bottom: solid 1px #ff9999;
+  padding-bottom: 5px;
+}
+
+h1 {
+  font-family: "Lobster", cursive;
+  font-size: 45px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  margin: 0;
+}
+
+p {
+  font-family: "Quicksand", sans-serif;
+}
+
+button {
+  background: #ff9999;
+  border-radius: 18px;
+  border: #ff9999;
+  height: 35px;
+  margin-bottom: 10px;
+  color: #fff;
+  width: 90px;
+  font-family: "Quicksand", sans-serif;
+}
+
+button:hover {
+  background: #e3fbd9;
+  color: black;
+}
