@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { CartService } from "../cart.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-products",
@@ -7,12 +8,10 @@ import { CartService } from "../cart.service";
   styleUrls: ["./products.component.css"]
 })
 export class ProductsComponent implements OnInit {
-  cart;
+  cart: object[];
   constructor(private api: CartService) {}
 
-  ngOnInit(): void {
-    this.api
-      .getAllItems()
-      .subscribe((response: cart) => (this.cart = response));
+  ngOnInit() {
+    this.api.getAllItems().subscribe(response => (this.cart = response));
   }
 }
