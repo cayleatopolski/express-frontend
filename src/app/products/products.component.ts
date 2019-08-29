@@ -14,4 +14,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.api.getAllItems().subscribe(response => (this.cart = response));
   }
+
+  addItem(form: NgForm): void {
+    this.api.addItem(form.value).subscribe(response => (this.cart = response));
+  }
+
+  removeItem(id: number) {
+    this.api.removeItem(id).subscribe(response => (this.cart = response));
+  }
 }
