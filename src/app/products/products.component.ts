@@ -9,6 +9,8 @@ import { NgForm } from "@angular/forms";
 })
 export class ProductsComponent implements OnInit {
   cart: object[];
+  showAddForm: boolean = false;
+  showEditForm: boolean = false;
   constructor(private api: CartService) {}
 
   ngOnInit() {
@@ -21,5 +23,19 @@ export class ProductsComponent implements OnInit {
 
   removeItem(id: number) {
     this.api.removeItem(id).subscribe(response => (this.cart = response));
+  }
+
+  updateItem(form: NgForm, id: number) {
+    this.api
+      .updateItem(form.value, id)
+      .subscribe(response => (this.cart = response));
+  }
+
+  toggleAddForm(): void {
+    this.showAddForm = !this.showAddForm;
+  }
+
+  toggleQuantityEdit(): void {
+    this.showEditForm = !this.showEditForm;
   }
 }

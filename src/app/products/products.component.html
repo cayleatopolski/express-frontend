@@ -1,16 +1,26 @@
-<section id="products">
-  <h1>Beach Stuff</h1>
-  <div *ngFor="let item of cart; index as i">
-    <p>Name: {{ item.product }}</p>
-    <p>Price: {{ item.price }}</p>
-    <button (click)="removeItem(item.id)">Remove Item</button>
-  </div>
-</section>
+<main>
+  <section id="products">
+    <h1>Beach Stuff</h1>
+    <button class="new" (click)="toggleAddForm()">Add Item</button>
+    <div *ngFor="let item of cart; index as i">
+      <p>Name: {{ item.product }}</p>
+      <p>Price: {{ item.price }}</p>
+      <p>Quantity: {{ item.quantity }}</p>
+      <button (click)="updateItem(item.id)">Change Quantity</button>
+      <button (click)="removeItem(item.id)">Remove Item</button>
+    </div>
+  </section>
 
-<section>
-  <form #addItemForm="ngForm" (ngSubmit)="addItem(addItemForm)">
-    <input type="text" placeholder="Product Name" name="product" ngModel />
-    <input type="text" placeholder="Product Price" name="price" ngModel />
-    <button>Add Item</button>
-  </form>
-</section>
+  <section>
+    <form
+      *ngIf="showAddForm"
+      #addItemForm="ngForm"
+      (ngSubmit)="[addItem(addItemForm), toggleAddForm()]"
+    >
+      <input type="text" placeholder="Product Name" name="product" ngModel />
+      <input type="text" placeholder="Product Price" name="price" ngModel />
+      <input type="text" placeholder="Quantity" name="quantity" ngModel />
+      <button>Add Item</button>
+    </form>
+  </section>
+</main>

@@ -20,7 +20,7 @@ export class CartService {
     return this.http.delete(`http://localhost:5000/cart-items/${id}`);
   }
 
-  updateItem(item: object): Observable<any> {
-    return this.http.put(`http://localhost:5000/cart-items`, item);
+  updateItem(item: object, id: number): Observable<any> {
+    return this.http.put(`http://localhost:5000/cart-items${id}`, item);
   }
 }
