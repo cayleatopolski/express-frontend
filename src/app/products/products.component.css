@@ -14,6 +14,7 @@ div {
   margin: 5px 20px;
   border-bottom: solid 1px #ff9999;
   padding-bottom: 5px;
+  position: relative;
 }
 
 h1 {
@@ -25,7 +26,8 @@ h1 {
   margin: 0;
 }
 
-p {
+p,
+div {
   font-family: "Quicksand", sans-serif;
 }
 
@@ -43,4 +45,36 @@ button {
 button:hover {
   background: #e3fbd9;
   color: black;
+  cursor: pointer;
+}
+
+/* #new {
+} */
+
+#x {
+  color: #ff9999;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#x:hover {
+  color: gray;
+  transform: scale(2.1);
+  cursor: pointer;
+}
+
+#pencil {
+  color: #ff9999;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 0;
+  right: 25px;
+}
+
+#pencil:hover {
+  color: gray;
+  transform: scale(2.1);
+  cursor: pointer;
 }

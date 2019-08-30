@@ -1,13 +1,17 @@
 <main>
   <section id="products">
     <h1>Beach Stuff</h1>
-    <button class="new" (click)="toggleAddForm()">Add Item</button>
-    <div *ngFor="let item of cart; index as i">
+    <button id="new" (click)="toggleAddForm()">Add Item</button>
+    <div *ngFor="let item of cart">
       <p>Name: {{ item.product }}</p>
       <p>Price: {{ item.price }}</p>
       <p>Quantity: {{ item.quantity }}</p>
-      <button (click)="updateItem(item.id)">Change Quantity</button>
-      <button (click)="removeItem(item.id)">Remove Item</button>
+      <i
+        id="pencil"
+        (click)="[toggleEditForm(), setItemToEdit(item)]"
+        class="fas fa-pencil-alt"
+      ></i>
+      <i id="x" (click)="removeItem(item.id)" class="fas fa-times"></i>
     </div>
   </section>
 
@@ -21,6 +25,17 @@
       <input type="text" placeholder="Product Price" name="price" ngModel />
       <input type="text" placeholder="Quantity" name="quantity" ngModel />
       <button>Add Item</button>
+    </form>
+  </section>
+
+  <section>
+    <form
+      *ngIf="showEditForm"
+      #editItemForm="ngForm"
+      (ngSubmit)="[updateItem(editItemForm, itemToEdit.id), toggleEditForm()]"
+    >
+      <input type="number" name="quantity" [ngModel]="itemToEdit.quantity" />
+      <button>Submit</button>
     </form>
   </section>
 </main>

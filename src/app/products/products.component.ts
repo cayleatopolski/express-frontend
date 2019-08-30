@@ -11,6 +11,8 @@ export class ProductsComponent implements OnInit {
   cart: object[];
   showAddForm: boolean = false;
   showEditForm: boolean = false;
+  itemToEdit: object;
+
   constructor(private api: CartService) {}
 
   ngOnInit() {
@@ -31,11 +33,15 @@ export class ProductsComponent implements OnInit {
       .subscribe(response => (this.cart = response));
   }
 
+  setItemToEdit(item: object) {
+    this.itemToEdit = item;
+  }
+
   toggleAddForm(): void {
     this.showAddForm = !this.showAddForm;
   }
 
-  toggleQuantityEdit(): void {
+  toggleEditForm(): void {
     this.showEditForm = !this.showEditForm;
   }
 }
